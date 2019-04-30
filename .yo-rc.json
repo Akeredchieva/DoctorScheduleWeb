@@ -1,0 +1,38 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.doctor.schedule",
+            "nativeLanguage": "en"
+        },
+        "jhipsterVersion": "5.8.2",
+        "applicationType": "monolith",
+        "baseName": "DoctorSchedule",
+        "packageName": "com.doctor.schedule",
+        "packageFolder": "com/doctor/schedule",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "h2Disk",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "MTg0MzdkOWQwZjhmODRiMjU4ZTcwYzE2MDczYWI3MWYwNGQ3OTliMWRiMGY5ZmRkZDkxYTZjOGFhMDQ0MGNmNWFkMDY1ZTdiZGQxNzRmNmIwYWVkMzBlOTFkYzBjMGY0NzUyNmJhOTgwYmI2M2E4ZjM3Yzc2MjAyMDE4NGEzMGE=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": true,
+        "nativeLanguage": "en",
+        "languages": ["en"]
+    }
+}
