@@ -1,0 +1,56 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="doctorScheduleApp.medicines.home.title">Medicines</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-medicines" [routerLink]="['/medicines/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="doctorScheduleApp.medicines.home.createLabel">
+            Create new Medicines
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="medicines">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="doctorScheduleApp.medicines.name">Name</span></th>
+            <th><span jhiTranslate="doctorScheduleApp.medicines.description">Description</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let medicines of medicines ;trackBy: trackId">
+                <td><a [routerLink]="['/medicines', medicines.id, 'view' ]">{{medicines.id}}</a></td>
+                <td>{{medicines.name}}</td>
+                <td>{{medicines.description}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/medicines', medicines.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/medicines', medicines.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'medicines', { outlets: { popup: medicines.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

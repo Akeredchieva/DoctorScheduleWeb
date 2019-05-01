@@ -38,6 +38,17 @@ public class CacheConfiguration {
             cm.createCache(com.doctor.schedule.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.doctor.schedule.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.doctor.schedule.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.doctor.schedule.domain.Diseases.class.getName(), jcacheConfiguration);
+            cm.createCache(com.doctor.schedule.domain.Patients.class.getName(), jcacheConfiguration);
+            cm.createCache(com.doctor.schedule.domain.Patients.class.getName() + ".doctors", jcacheConfiguration);
+            cm.createCache(com.doctor.schedule.domain.Doctors.class.getName(), jcacheConfiguration);
+            cm.createCache(com.doctor.schedule.domain.Doctors.class.getName() + ".typeOfDoctors", jcacheConfiguration);
+            cm.createCache(com.doctor.schedule.domain.Doctors.class.getName() + ".patients", jcacheConfiguration);
+            cm.createCache(com.doctor.schedule.domain.Times.class.getName(), jcacheConfiguration);
+            cm.createCache(com.doctor.schedule.domain.PatientsMedicines.class.getName(), jcacheConfiguration);
+            cm.createCache(com.doctor.schedule.domain.PatientsDiseases.class.getName(), jcacheConfiguration);
+            cm.createCache(com.doctor.schedule.domain.Medicines.class.getName(), jcacheConfiguration);
+            cm.createCache(com.doctor.schedule.domain.TypesOfDoctor.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

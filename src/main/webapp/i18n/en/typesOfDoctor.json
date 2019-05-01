@@ -1,0 +1,22 @@
+{
+    "doctorScheduleApp": {
+        "typesOfDoctor": {
+            "home": {
+                "title": "Types Of Doctors",
+                "createLabel": "Create a new Types Of Doctor",
+                "createOrEditLabel": "Create or edit a Types Of Doctor"
+            },
+            "created": "A new Types Of Doctor is created with identifier {{ param }}",
+            "updated": "A Types Of Doctor is updated with identifier {{ param }}",
+            "deleted": "A Types Of Doctor is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Types Of Doctor {{ id }}?"
+            },
+            "detail": {
+                "title": "Types Of Doctor"
+            },
+            "specialist": "Specialist",
+            "doctors": "Doctors"
+        }
+    }
+}

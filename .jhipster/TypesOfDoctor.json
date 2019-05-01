@@ -1,0 +1,26 @@
+{
+    "name": "TypesOfDoctor",
+    "fields": [
+        {
+            "fieldName": "specialist",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "doctors",
+            "otherEntityName": "doctors",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190501192055",
+    "entityTableName": "types_of_doctor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,27 @@
+{
+    "doctorScheduleApp": {
+        "doctors": {
+            "home": {
+                "title": "Doctors",
+                "createLabel": "Create a new Doctors",
+                "createOrEditLabel": "Create or edit a Doctors"
+            },
+            "created": "A new Doctors is created with identifier {{ param }}",
+            "updated": "A Doctors is updated with identifier {{ param }}",
+            "deleted": "A Doctors is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Doctors {{ id }}?"
+            },
+            "detail": {
+                "title": "Doctors"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "phone": "Phone",
+            "typeOfDoctor": "Type Of Doctor",
+            "user": "User",
+            "patients": "Patients"
+        }
+    }
+}

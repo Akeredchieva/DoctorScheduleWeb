@@ -1,0 +1,25 @@
+{
+    "doctorScheduleApp": {
+        "patientsMedicines": {
+            "home": {
+                "title": "Patients Medicines",
+                "createLabel": "Create a new Patients Medicines",
+                "createOrEditLabel": "Create or edit a Patients Medicines"
+            },
+            "created": "A new Patients Medicines is created with identifier {{ param }}",
+            "updated": "A Patients Medicines is updated with identifier {{ param }}",
+            "deleted": "A Patients Medicines is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Patients Medicines {{ id }}?"
+            },
+            "detail": {
+                "title": "Patients Medicines"
+            },
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "description": "Description",
+            "patient": "Patient",
+            "medicine": "Medicine"
+        }
+    }
+}

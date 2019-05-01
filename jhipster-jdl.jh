@@ -1,0 +1,63 @@
+entity Diseases {
+	diseaseName String,
+    description String
+}
+
+entity Patients {
+	firstName String,
+    middleName String,
+    lastName String,
+    phone String,
+    personalId String,
+    address String,
+    email String
+}
+entity Doctors {
+	firstName String,
+    lastName String,
+    email String,
+    phone String,    
+}
+ entity Times {
+ 	date LocalDate
+
+ }
+
+entity PatientsMedicines {
+    startDate LocalDate,
+    endDate LocalDate,
+    description String
+}
+
+entity PatientsDiseases {
+    description String
+}
+
+entity Medicines {
+	name String,
+    description String
+} 
+
+entity TypesOfDoctor {
+	specialist String
+}
+
+relationship ManyToMany {
+    Doctors{patients} to Patients{doctors}
+}
+relationship OneToOne {
+    Times{patient} to Patients,
+    Times{doctor} to Doctors,
+    PatientsMedicines{patient} to Patients,
+    PatientsDiseases{patient} to Patients,
+    PatientsMedicines{medicine} to Medicines,
+    PatientsDiseases{diseases} to Diseases
+}
+
+relationship OneToMany {
+    Doctors{typeOfDoctor} to TypesOfDoctor
+}
+relationship ManyToOne{
+    Doctors{user} to User,
+    Patients{user} to User
+}

@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-doctors-heading" jhiTranslate="doctorScheduleApp.doctors.home.createOrEditLabel">Create or edit a Doctors</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!doctors.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="doctors.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="doctorScheduleApp.doctors.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                        [(ngModel)]="doctors.firstName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="doctorScheduleApp.doctors.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                        [(ngModel)]="doctors.lastName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="doctorScheduleApp.doctors.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="doctors.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="doctorScheduleApp.doctors.phone" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                        [(ngModel)]="doctors.phone" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="doctorScheduleApp.doctors.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="doctors.user" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === doctors.user?.id ? doctors.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="doctorScheduleApp.doctors.patients" for="field_patients">Patients</label>
+                    <select class="form-control" id="field_patients" multiple name="patients" [(ngModel)]="doctors.patients">
+                        <option [ngValue]="getSelected(doctors.patients, patientsOption)" *ngFor="let patientsOption of patients; trackBy: trackPatientsById">{{patientsOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

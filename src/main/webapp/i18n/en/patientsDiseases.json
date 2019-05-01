@@ -1,0 +1,23 @@
+{
+    "doctorScheduleApp": {
+        "patientsDiseases": {
+            "home": {
+                "title": "Patients Diseases",
+                "createLabel": "Create a new Patients Diseases",
+                "createOrEditLabel": "Create or edit a Patients Diseases"
+            },
+            "created": "A new Patients Diseases is created with identifier {{ param }}",
+            "updated": "A Patients Diseases is updated with identifier {{ param }}",
+            "deleted": "A Patients Diseases is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Patients Diseases {{ id }}?"
+            },
+            "detail": {
+                "title": "Patients Diseases"
+            },
+            "description": "Description",
+            "patient": "Patient",
+            "diseases": "Diseases"
+        }
+    }
+}

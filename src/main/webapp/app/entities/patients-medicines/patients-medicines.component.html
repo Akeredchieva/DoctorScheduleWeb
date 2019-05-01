@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="doctorScheduleApp.patientsMedicines.home.title">Patients Medicines</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-patients-medicines" [routerLink]="['/patients-medicines/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="doctorScheduleApp.patientsMedicines.home.createLabel">
+            Create new Patients Medicines
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="patientsMedicines">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="doctorScheduleApp.patientsMedicines.startDate">Start Date</span></th>
+            <th><span jhiTranslate="doctorScheduleApp.patientsMedicines.endDate">End Date</span></th>
+            <th><span jhiTranslate="doctorScheduleApp.patientsMedicines.description">Description</span></th>
+            <th><span jhiTranslate="doctorScheduleApp.patientsMedicines.patient">Patient</span></th>
+            <th><span jhiTranslate="doctorScheduleApp.patientsMedicines.medicine">Medicine</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let patientsMedicines of patientsMedicines ;trackBy: trackId">
+                <td><a [routerLink]="['/patients-medicines', patientsMedicines.id, 'view' ]">{{patientsMedicines.id}}</a></td>
+                <td>{{patientsMedicines.startDate | date:'mediumDate'}}</td>
+                <td>{{patientsMedicines.endDate | date:'mediumDate'}}</td>
+                <td>{{patientsMedicines.description}}</td>
+                <td>
+                    <div *ngIf="patientsMedicines.patient">
+                        <a [routerLink]="['../patients', patientsMedicines.patient?.id, 'view' ]" >{{patientsMedicines.patient?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="patientsMedicines.medicine">
+                        <a [routerLink]="['../medicines', patientsMedicines.medicine?.id, 'view' ]" >{{patientsMedicines.medicine?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/patients-medicines', patientsMedicines.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/patients-medicines', patientsMedicines.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'patients-medicines', { outlets: { popup: patientsMedicines.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
