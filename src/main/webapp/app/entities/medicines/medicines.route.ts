@@ -33,7 +33,7 @@ export const medicinesRoute: Routes = [
         path: '',
         component: MedicinesComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.medicines.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const medicinesRoute: Routes = [
             medicines: MedicinesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.medicines.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const medicinesRoute: Routes = [
             medicines: MedicinesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.medicines.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const medicinesRoute: Routes = [
             medicines: MedicinesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.medicines.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const medicinesPopupRoute: Routes = [
             medicines: MedicinesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.medicines.home.title'
         },
         canActivate: [UserRouteAccessService],

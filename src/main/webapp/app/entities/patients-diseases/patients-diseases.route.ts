@@ -33,7 +33,7 @@ export const patientsDiseasesRoute: Routes = [
         path: '',
         component: PatientsDiseasesComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_PATIENT', 'ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.patientsDiseases.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const patientsDiseasesRoute: Routes = [
             patientsDiseases: PatientsDiseasesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_PATIENT', 'ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.patientsDiseases.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const patientsDiseasesRoute: Routes = [
             patientsDiseases: PatientsDiseasesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.patientsDiseases.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const patientsDiseasesRoute: Routes = [
             patientsDiseases: PatientsDiseasesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.patientsDiseases.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const patientsDiseasesPopupRoute: Routes = [
             patientsDiseases: PatientsDiseasesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.patientsDiseases.home.title'
         },
         canActivate: [UserRouteAccessService],

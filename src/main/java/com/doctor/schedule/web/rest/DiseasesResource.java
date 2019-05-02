@@ -1,12 +1,14 @@
 package com.doctor.schedule.web.rest;
 import com.doctor.schedule.domain.Diseases;
 import com.doctor.schedule.repository.DiseasesRepository;
+import com.doctor.schedule.security.AuthoritiesConstants;
 import com.doctor.schedule.web.rest.errors.BadRequestAlertException;
 import com.doctor.schedule.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -77,6 +79,7 @@ public class DiseasesResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of diseases in body
      */
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.DOCTOR + "\")")
     @GetMapping("/diseases")
     public List<Diseases> getAllDiseases() {
         log.debug("REST request to get all Diseases");
@@ -102,6 +105,7 @@ public class DiseasesResource {
      * @param id the id of the diseases to delete
      * @return the ResponseEntity with status 200 (OK)
      */
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     @DeleteMapping("/diseases/{id}")
     public ResponseEntity<Void> deleteDiseases(@PathVariable Long id) {
         log.debug("REST request to delete Diseases : {}", id);

@@ -33,7 +33,7 @@ export const timesRoute: Routes = [
         path: '',
         component: TimesComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR', 'ROLE_PATIENT'],
             pageTitle: 'doctorScheduleApp.times.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const timesRoute: Routes = [
             times: TimesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR', 'ROLE_PATIENT'],
             pageTitle: 'doctorScheduleApp.times.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const timesRoute: Routes = [
             times: TimesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.times.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const timesRoute: Routes = [
             times: TimesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.times.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const timesPopupRoute: Routes = [
             times: TimesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_DOCTOR'],
             pageTitle: 'doctorScheduleApp.times.home.title'
         },
         canActivate: [UserRouteAccessService],
