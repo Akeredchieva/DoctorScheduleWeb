@@ -1,12 +1,14 @@
 package com.doctor.schedule.web.rest;
 import com.doctor.schedule.domain.Medicines;
 import com.doctor.schedule.repository.MedicinesRepository;
+import com.doctor.schedule.security.AuthoritiesConstants;
 import com.doctor.schedule.web.rest.errors.BadRequestAlertException;
 import com.doctor.schedule.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -39,6 +41,7 @@ public class MedicinesResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new medicines, or with status 400 (Bad Request) if the medicines has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     @PostMapping("/medicines")
     public ResponseEntity<Medicines> createMedicines(@RequestBody Medicines medicines) throws URISyntaxException {
         log.debug("REST request to save Medicines : {}", medicines);
@@ -60,6 +63,7 @@ public class MedicinesResource {
      * or with status 500 (Internal Server Error) if the medicines couldn't be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     @PutMapping("/medicines")
     public ResponseEntity<Medicines> updateMedicines(@RequestBody Medicines medicines) throws URISyntaxException {
         log.debug("REST request to update Medicines : {}", medicines);
@@ -77,6 +81,7 @@ public class MedicinesResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of medicines in body
      */
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.DOCTOR + "\") or hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     @GetMapping("/medicines")
     public List<Medicines> getAllMedicines() {
         log.debug("REST request to get all Medicines");
@@ -89,6 +94,9 @@ public class MedicinesResource {
      * @param id the id of the medicines to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the medicines, or with status 404 (Not Found)
      */
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.DOCTOR + "\") " +
+        "or hasRole(\"" + AuthoritiesConstants.ADMIN + "\")" +
+        "or hasRole(\"" + AuthoritiesConstants.PATIENT + "\")")
     @GetMapping("/medicines/{id}")
     public ResponseEntity<Medicines> getMedicines(@PathVariable Long id) {
         log.debug("REST request to get Medicines : {}", id);
@@ -102,6 +110,7 @@ public class MedicinesResource {
      * @param id the id of the medicines to delete
      * @return the ResponseEntity with status 200 (OK)
      */
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     @DeleteMapping("/medicines/{id}")
     public ResponseEntity<Void> deleteMedicines(@PathVariable Long id) {
         log.debug("REST request to delete Medicines : {}", id);

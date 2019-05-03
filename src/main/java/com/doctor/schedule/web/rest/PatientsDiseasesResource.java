@@ -1,12 +1,14 @@
 package com.doctor.schedule.web.rest;
 import com.doctor.schedule.domain.PatientsDiseases;
 import com.doctor.schedule.repository.PatientsDiseasesRepository;
+import com.doctor.schedule.security.AuthoritiesConstants;
 import com.doctor.schedule.web.rest.errors.BadRequestAlertException;
 import com.doctor.schedule.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -21,7 +23,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class PatientsDiseasesResource {
-
     private final Logger log = LoggerFactory.getLogger(PatientsDiseasesResource.class);
 
     private static final String ENTITY_NAME = "patientsDiseases";
@@ -39,6 +40,7 @@ public class PatientsDiseasesResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new patientsDiseases, or with status 400 (Bad Request) if the patientsDiseases has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.DOCTOR + "\")")
     @PostMapping("/patients-diseases")
     public ResponseEntity<PatientsDiseases> createPatientsDiseases(@RequestBody PatientsDiseases patientsDiseases) throws URISyntaxException {
         log.debug("REST request to save PatientsDiseases : {}", patientsDiseases);
@@ -60,6 +62,7 @@ public class PatientsDiseasesResource {
      * or with status 500 (Internal Server Error) if the patientsDiseases couldn't be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.DOCTOR + "\")")
     @PutMapping("/patients-diseases")
     public ResponseEntity<PatientsDiseases> updatePatientsDiseases(@RequestBody PatientsDiseases patientsDiseases) throws URISyntaxException {
         log.debug("REST request to update PatientsDiseases : {}", patientsDiseases);

@@ -41,6 +41,7 @@ public class DiseasesResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new diseases, or with status 400 (Bad Request) if the diseases has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     @PostMapping("/diseases")
     public ResponseEntity<Diseases> createDiseases(@RequestBody Diseases diseases) throws URISyntaxException {
         log.debug("REST request to save Diseases : {}", diseases);
@@ -62,6 +63,7 @@ public class DiseasesResource {
      * or with status 500 (Internal Server Error) if the diseases couldn't be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     @PutMapping("/diseases")
     public ResponseEntity<Diseases> updateDiseases(@RequestBody Diseases diseases) throws URISyntaxException {
         log.debug("REST request to update Diseases : {}", diseases);
@@ -79,7 +81,8 @@ public class DiseasesResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of diseases in body
      */
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.DOCTOR + "\")")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.DOCTOR + "\") " +
+        "or hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     @GetMapping("/diseases")
     public List<Diseases> getAllDiseases() {
         log.debug("REST request to get all Diseases");
@@ -92,6 +95,9 @@ public class DiseasesResource {
      * @param id the id of the diseases to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the diseases, or with status 404 (Not Found)
      */
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.DOCTOR + "\") " +
+        "or hasRole(\"" + AuthoritiesConstants.PATIENT + "\") " +
+        "or hasRole(\"" + AuthoritiesConstants.PATIENT + "\")")
     @GetMapping("/diseases/{id}")
     public ResponseEntity<Diseases> getDiseases(@PathVariable Long id) {
         log.debug("REST request to get Diseases : {}", id);
