@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { IPatients } from 'app/shared/model/patients.model';
+import { IPatientDiseaseMedicine } from 'app/shared/model/patient-disease-medicine.model';
 
 type EntityResponseType = HttpResponse<IPatients>;
 type EntityArrayResponseType = HttpResponse<IPatients[]>;
@@ -25,6 +26,10 @@ export class PatientsService {
 
     find(id: number): Observable<EntityResponseType> {
         return this.http.get<IPatients>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+    }
+
+    findDiseaseMedicine(id: number): Observable<EntityResponseType> {
+        return this.http.get<IPatientDiseaseMedicine>(`${this.resourceUrl}/diseaseMedicine/${id}`, { observe: 'response' });
     }
 
     query(req?: any): Observable<EntityArrayResponseType> {

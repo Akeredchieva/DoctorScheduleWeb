@@ -22,57 +22,58 @@
                     <span>
                         <fa-icon icon="th-list"></fa-icon>
                         <span jhiTranslate="global.menu.entities.main">
-                            Entities
+                            Options
                         </span>
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
-                    <li>
+                    <!-- TODO Diseases should be added for ROLE_PATIENT as Patient Diseases with appropriate routing-->
+                    <li *jhiHasAnyAuthority="['ROLE_DOCTOR' , 'ROLE_ADMIN']">
                         <a class="dropdown-item" routerLink="diseases" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.diseases">Diseases</span>
+                            <span jhiTranslate="global.menu.entities.diseases" >Diseases</span>
                         </a>
                     </li>
-                    <li>
+                    <li *jhiHasAnyAuthority="['ROLE_DOCTOR' , 'ROLE_ADMIN']">
                         <a class="dropdown-item" routerLink="patients" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.patients">Patients</span>
+                            <span jhiTranslate="global.menu.entities.patients" >Patients</span>
                         </a>
                     </li>
-                    <li>
+                    <li *jhiHasAnyAuthority="['ROLE_DOCTOR' , 'ROLE_ADMIN' , 'ROLE_PATIENT']">
                         <a class="dropdown-item" routerLink="doctors" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.doctors">Doctors</span>
+                            <span jhiTranslate="global.menu.entities.doctors" >Doctors</span>
                         </a>
                     </li>
-                    <li>
+                    <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
                         <a class="dropdown-item" routerLink="times" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.times">Times</span>
+                            <span jhiTranslate="global.menu.entities.times" >Times</span>
                         </a>
                     </li>
-                    <li>
+                    <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
                         <a class="dropdown-item" routerLink="patients-medicines" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.patientsMedicines">Patients Medicines</span>
+                            <span jhiTranslate="global.menu.entities.patientsMedicines" >Patients Medicines</span>
                         </a>
                     </li>
-                    <li>
+                    <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
                         <a class="dropdown-item" routerLink="patients-diseases" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.patientsDiseases">Patients Diseases</span>
+                            <span jhiTranslate="global.menu.entities.patientsDiseases" >Patients Diseases</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="medicines" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.medicines">Medicines</span>
+                            <span jhiTranslate="global.menu.entities.medicines" >Medicines</span>
                         </a>
                     </li>
-                    <li>
+                    <li *jhiHasAnyAuthority="['ROLE_DOCTOR' , 'ROLE_ADMIN']">
                         <a class="dropdown-item" routerLink="types-of-doctor" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.typesOfDoctor">Types Of Doctor</span>
+                            <span jhiTranslate="global.menu.entities.typesOfDoctor" >Types Of Doctor</span>
                         </a>
                     </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
@@ -155,7 +156,7 @@
                   <span *ngIf="!getImageUrl()">
                     <fa-icon icon="user"></fa-icon>
                     <span jhiTranslate="global.menu.account.main">
-                      Account
+                      Profile
                     </span>
                   </span>
                   <span *ngIf="getImageUrl()">

@@ -13,6 +13,7 @@ import {
     patientsRoute,
     patientsPopupRoute
 } from './';
+import { PatientDeseaseComponent } from './patient-desease/patient-desease.component';
 
 const ENTITY_STATES = [...patientsRoute, ...patientsPopupRoute];
 
@@ -23,7 +24,8 @@ const ENTITY_STATES = [...patientsRoute, ...patientsPopupRoute];
         PatientsDetailComponent,
         PatientsUpdateComponent,
         PatientsDeleteDialogComponent,
-        PatientsDeletePopupComponent
+        PatientsDeletePopupComponent,
+        PatientDeseaseComponent
     ],
     entryComponents: [PatientsComponent, PatientsUpdateComponent, PatientsDeleteDialogComponent, PatientsDeletePopupComponent],
     providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
